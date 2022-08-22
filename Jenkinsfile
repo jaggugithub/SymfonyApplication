@@ -5,12 +5,12 @@ pipeline {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub-accstoken')
 	}
     stages {
-        stage('Build Docker Image') {
+        stage('Build DockerImage') {
             steps {
                 sh "docker build -t jaggu199/symfony:$BUILD_NUMBER ."
             }
         }
-        stage('Scan Docker Image') {
+        stage('Scan DockerImage') {
             steps {
                 sh "docker scan jaggu199/symfony:$BUILD_NUMBER"
             }
@@ -21,7 +21,7 @@ pipeline {
 				sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
 			}
 		}
-        stage('Push Docker Image') {
+        stage('Push DockerImage') {
             steps {
                 sh "docker push jaggu199/symfony:$BUILD_NUMBER"
             }
