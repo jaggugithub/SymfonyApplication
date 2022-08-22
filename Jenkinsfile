@@ -26,10 +26,10 @@ pipeline {
                 sh "docker push jaggu199/symfony:$BUILD_NUMBER"
             }
         }
-        post {
-		    always {
-			    sh "docker logout"
-		    }
+    }
+    post {
+		always {
+		    sh "docker logout"
 	    }
-    }    
+	}  
 }
