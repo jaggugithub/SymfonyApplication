@@ -10,6 +10,6 @@ services:
             - MYSQL_USER=someuser
     web:
         build: .
-        image: "jaggu199/symfony:1.0"
+        image: "jaggu199/symfony:2.0"
         ports:
             - 80:80
