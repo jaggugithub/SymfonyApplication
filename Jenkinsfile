@@ -7,12 +7,12 @@ pipeline {
     stages {
         stage('Build DockerImage') {
             steps {
-                sh "docker build -t Giver Your Repo Name/symfony:$BUILD_NUMBER ."
+                sh "docker build -t jaggu199/symfony:$BUILD_NUMBER ."
             }
         }
         stage('Scan DockerImage') {
             steps {
-                sh "docker scan Giver Your Repo Name/symfony:$BUILD_NUMBER"
+                sh "docker scan jaggu199/symfony:$BUILD_NUMBER"
             }
         }
         stage('Docker Login') {
@@ -23,7 +23,7 @@ pipeline {
 		}
         stage('Push DockerImage') {
             steps {
-                sh "docker push Giver Your Repo Name/symfony:$BUILD_NUMBER"
+                sh "docker push jaggu199/symfony:$BUILD_NUMBER"
             }
         }
     }
