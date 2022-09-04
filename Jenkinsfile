@@ -40,5 +40,5 @@ pipeline {
 //                 build job: "k8sdeploy", parameters: [string(name: 'APP_BUILD_NUM', value: "${params.APP_BUILD_NUM}")]
 //             }
 // 	    }
-// 	}  
-// }
+ 	}  
+}
