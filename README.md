@@ -1,2 +1,2 @@
 # SymfonyApplication
-This is a Symfony based frame web application.
+This is a Symfony frame work based web application.
