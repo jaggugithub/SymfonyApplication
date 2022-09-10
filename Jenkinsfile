@@ -3,7 +3,7 @@ pipeline {
 
     environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub-accstoken')
-        //APP_BUILD_NUM = ''
+        ////APP_BUILD_NUM = ''
 	}
     stages {
         stage('Build DockerImage') {
