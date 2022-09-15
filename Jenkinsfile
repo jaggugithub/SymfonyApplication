@@ -3,7 +3,6 @@ pipeline {
 
     environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub-accstoken')
-        ////APP_BUILD_NUM = ''
 	}
     stages {
         stage('Build DockerImage') {
@@ -27,18 +26,15 @@ pipeline {
                 sh "docker push jaggu199/symfony:$BUILD_NUMBER"
             }
         }
+        stage('Store Build Number') {
+            steps {
+                sh "echo jaggu199/symfony:$BUILD_NUMBER >> buildnum.txt"
+            }
+        }
     }
-    // parameters {
-    //     string defaultValue: BUILD_NUMBER, name: 'APP_BUILD_NUM'
-    // }
     post {
 		always {
 		    sh "docker logout"
 	    }
-//         success {
-// 		    script {
-//                 build job: "k8sdeploy", parameters: [string(name: 'APP_BUILD_NUM', value: "${params.APP_BUILD_NUM}")]
-//             }
-// 	    }
  	}  
 }
