@@ -28,13 +28,14 @@ pipeline {
         }
         stage('Store Build Number') {
             steps {
-                sh "echo jaggu199/symfony:$BUILD_NUMBER >> buildnum.txt"
+                sh "echo $BUILD_NUMBER >> buildnum.txt"
             }
         }
     }
     post {
 		always {
 		    sh "docker logout"
+            //cleanWs()   // This is to clean the workspace for this job
 	    }
  	}  
 }
