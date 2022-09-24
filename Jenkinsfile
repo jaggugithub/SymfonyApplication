@@ -35,7 +35,6 @@ pipeline {
     post {
 		always {
 		    sh "docker logout"
-            //cleanWs()   // This is to clean the workspace for this job
 	    }
  	}  
 }
